@@ -20,11 +20,9 @@ interface ICharacter {
 // реалізація класу Wizard
 class Wizard implements ICharacter, ISpellCaster {
   constructor(public name: string, public level: number) {
-    this.name = name;
     if (this.level < 1) {
       throw new Error('Level too low');
     }
-    this.level = level;
   }
 
   introduce(phrase: string): void {

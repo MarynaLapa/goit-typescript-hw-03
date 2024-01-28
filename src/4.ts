@@ -14,10 +14,10 @@
 
 class Key {
 
-    private _signature: number = Math.random();
+    private signature: number = Math.random();
 
     getSignature(): number {
-        return this._signature;
+        return this.signature;
     }
    
 }
@@ -25,9 +25,7 @@ const key = new Key();
 
 class Person {
     
-    constructor(private key: Key) {
-        this.key = key
-    }
+    constructor(private key: Key) {}
 
     public getKey():Key {
         return this.key
@@ -39,7 +37,7 @@ const person = new Person(key);
 
 
 abstract class House {
-    private _tenants: Person[] = [];
+    private tenants: Person[] = [];
     protected door: boolean = false;
 
     constructor(protected key: Key) {}
@@ -47,7 +45,7 @@ abstract class House {
     public abstract openDoor(key: Key): void;
 
     public comeIn(person: Person) {
-        if (this.door) this._tenants.push(person) 
+        if (this.door) this.tenants.push(person) 
     }
 }
 
